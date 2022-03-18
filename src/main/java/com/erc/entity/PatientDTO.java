@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name="PATIENT")
 public class PatientDTO implements Serializable{
@@ -24,9 +26,11 @@ public class PatientDTO implements Serializable{
 	@SequenceGenerator(name="seqhdmcodevalue",sequenceName="seqhdmcodevalue")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seqhdmcodevalue")               
 	@Column(name = "PATIENTID", unique = true, nullable = false)
+	@JsonProperty("patientid")
 	private Long patientId;
 	
 	@Column(name = "PATIENTNO")
+	@JsonProperty("patientno")
 	private String patientNo;
 	
 	@Column(name = "IDENTIFICATIONNO")
